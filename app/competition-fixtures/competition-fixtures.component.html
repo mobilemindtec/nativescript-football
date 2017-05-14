@@ -1,0 +1,13 @@
+<ActionBar [title]="competitionName" class="action-bar">
+</ActionBar>
+
+<DockLayout stretchLastChild="true">
+  <ListView [items]="fixtures" class="list-group">
+    <ng-template let-fixture="item">
+      <StackLayout class="list-group-item">
+        <!-- Fixture Template -->
+        <my-fixture [fixture]="fixture" (teamTap)="teamSelected($event)"></my-fixture>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+</DockLayout>
