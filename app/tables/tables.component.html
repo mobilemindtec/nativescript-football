@@ -8,7 +8,10 @@
       [nsRouterLink]="['/football/fixtures/', PremierLeagueId, 'Premier League']"
       class="btn btn-primary">
     </Button>
-    <my-league-table [competitionId]="PremierLeagueId"></my-league-table>
+    <my-league-table
+      [competitionId]="PremierLeagueId"
+      (teamSelected)="onTeamTap($event)">
+    </my-league-table>
   </StackLayout>
 
   <StackLayout *tabItem="{title: 'Primera Division'}">
@@ -17,7 +20,10 @@
       [nsRouterLink]="['/football/fixtures/', PrimeraDivisionId, 'Primera Division']"
       class="btn btn-primary">
     </Button>
-  <my-league-table [competitionId]="PrimeraDivisionId"></my-league-table>
+  <my-league-table
+    [competitionId]="PrimeraDivisionId"
+    (teamSelected)="onTeamTap($event)">
+  </my-league-table>
 </StackLayout>
 
   <StackLayout *tabItem="{title: 'Bundesliga'}">
@@ -26,7 +32,10 @@
       [nsRouterLink]="['/football/fixtures/', BundesligaId, 'Bundesliga']"
       class="btn btn-primary">
     </Button>
-    <my-league-table [competitionId]="BundesligaId"></my-league-table>
+    <my-league-table
+      [competitionId]="BundesligaId"
+      (teamSelected)="onTeamTap($event)">
+    </my-league-table>
   </StackLayout>
 
   <StackLayout *tabItem="{title: 'Serie A'}">
@@ -35,6 +44,9 @@
       [nsRouterLink]="['/football/fixtures/', SerieAId, 'Serie A']"
       class="btn btn-primary">
     </Button>
-    <my-league-table [competitionId]="SerieAId"></my-league-table>
+    <my-league-table
+      [competitionId]="SerieAId"
+      (teamSelected)="onTeamTap($event)">
+    </my-league-table>
   </StackLayout>
 </TabView>
