@@ -9,7 +9,7 @@ import { FootballService } from '../football.service';
   selector: 'my-fixtures',
   templateUrl: './competition-fixtures/competition-fixtures.component.html'
 })
-export class CompetitionFixturesComponent implements OnInit{
+export class CompetitionFixturesComponent implements OnInit {
   public fixtures: Fixture[] = [];
   public competitionName: string = '';
 
@@ -23,8 +23,15 @@ export class CompetitionFixturesComponent implements OnInit{
     const competitionId = +this.route.snapshot.params['competitionId'];
     this.competitionName = this.route.snapshot.params['competitionName'];
 
-    this.footballService.getFixtures(competitionId, { timeFrame: 'n14'})
+    this.loadData(competitionId)
       .then(fixtures => this.fixtures = fixtures);
+  }
+
+  async loadData(competitionId: number) {
+    let before = await this.footballService.getFixtures(competitionId, { timeFrame: 'p14'});
+    let after = await this.footballService.getFixtures(competitionId, { timeFrame: 'n14'});
+
+    return before.concat(after);
   }
 
   teamSelected(teamId: number) {
