@@ -11,7 +11,9 @@ export class LeagueTableComponent {
   private id: number;
   @Input() public set competitionId(id: number) {
     this.id = id;
+
     this.loadTeamsAndTable();
+    // setTimeout(() => this.loadTeamsAndTable(), 2000);
   }
 
   public table: LeagueTable;
@@ -23,13 +25,9 @@ export class LeagueTableComponent {
   /** 
    * Get both teams and table info. Teams contains short name for each team
    */
-  private loadTeamsAndTable() {
-    this.footballService.getTeams(this.id)
-      .then(teams => {
-        this.teams = teams;
-        this.footballService.getLeagueTable(this.id)
-          .then(table => this.table = table);
-      });
+  private async loadTeamsAndTable() {
+    this.teams = await this.footballService.getTeams(this.id);
+    this.table = await this.footballService.getLeagueTable(this.id);
   }
 
   public getTeamName(teamId: number): string {
