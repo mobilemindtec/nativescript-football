@@ -1,4 +1,14 @@
 <StackLayout>
+  
+  <Placeholder *ngIf="table === undefined; then wait else show">
+  </Placeholder>
+
+  <ng-template #wait>
+    <Label text="Data is loading... please wait" textWrap="true"></Label>
+  </ng-template>
+
+
+  <ng-template #show>
   <GridLayout rows="auto" columns="30, *, 30, 30, 30, 30, 40, 40">
     <Label col="0" text="#" class="text-center text-primary"></Label>
     <Label col="1" text="Name"class="text-left text-primary"></Label>
@@ -24,5 +34,5 @@
       </GridLayout>
     </ng-template>
   </ListView>
-
+  </ng-template>
 </StackLayout>
