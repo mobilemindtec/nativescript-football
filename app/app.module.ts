@@ -1,7 +1,9 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+// import { NativeScriptModule } from 'nativescript-angular/platform';
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { AppRoutingModule } from './app.routing';
 import { NativeScriptHttpModule } from 'nativescript-angular/http';
+import { NativeScriptAnimationsModule  } from 'nativescript-angular/animations'; // <---
 import { AppComponent } from './app.component';
 
 import { CompetitionFixturesComponent } from './competition-fixtures/competition-fixtures.component';
@@ -17,6 +19,7 @@ import { FootballService } from './football.service';
         AppComponent
     ],
     imports: [
+        // NativeScriptAnimationsModule,
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptHttpModule
