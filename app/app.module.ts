@@ -22,15 +22,15 @@ import { FootballService } from './football.service';
     imports: [
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptHttpModule // <-- To remove when lazy loading
+        NativeScriptHttpModule
     ],
     declarations: [
         AppComponent,
-// <-- To remove when lazy loading
 
         LeagueTableComponent,
         TablesComponent,
 
+// <-- To remove when lazy loading
         CompetitionFixturesComponent,
         FixtureComponent,
 
@@ -42,7 +42,7 @@ import { FootballService } from './football.service';
     ],
     providers: [
         { provide: NgModuleFactoryLoader, useClass: NSModuleFactoryLoader },
-        FootballService // <-- To remove when lazy loading
+        FootballService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

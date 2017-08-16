@@ -9,15 +9,14 @@ import { TeamComponent } from './team';
 
 const routes: Routes = [
     { path: '', redirectTo: '/tables', pathMatch: 'full' },
-
-// <-- To remove when lazy loading
     { path: 'tables', component: TablesComponent },
+    
+// <-- To remove when lazy loading
     { path: 'fixtures/:competitionId/:competitionName', component: CompetitionFixturesComponent },
     { path: 'team/:teamId', component: TeamComponent }
 // --> 
 
 // <-- To use when lazy loading
-    // { path: 'tables', loadChildren: './tables/tables.module#TablesModule'},
     // { path: 'fixtures/:competitionId/:competitionName', loadChildren: './competition-fixtures/competition-fixtures.module#CompetitionFixturesModule' },
     // { path: 'team/:teamId', loadChildren: './team/team.module#TeamModule' }
 // -->
