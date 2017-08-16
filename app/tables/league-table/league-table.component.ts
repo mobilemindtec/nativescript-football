@@ -22,7 +22,7 @@ export class LeagueTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.loadTeamsAndTable();
+    this.loadTeamsAndTable();
   }
 
   /** 
