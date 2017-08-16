@@ -1,18 +1,26 @@
 import { NgModule } from '@angular/core';
 import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { Routes } from '@angular/router';
-import { TablesComponent } from './tables/tables.component';
-import { CompetitionFixturesComponent } from './competition-fixtures/competition-fixtures.component';
-import { TeamComponent } from './team/team.component';
+
+import { TablesComponent } from './tables';
+import { CompetitionFixturesComponent } from './competition-fixtures';
+import { TeamComponent } from './team';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/football', pathMatch: 'full' },
-  { path: 'football', children: [
-    { path: '', component: TablesComponent },
+    { path: '', redirectTo: '/tables', pathMatch: 'full' },
+
+// <-- To remove when lazy loading
+    { path: 'tables', component: TablesComponent },
     { path: 'fixtures/:competitionId/:competitionName', component: CompetitionFixturesComponent },
-  { path: 'team/:teamId', component: TeamComponent }
-  ]},
+    { path: 'team/:teamId', component: TeamComponent }
+// --> 
+
+// <-- To use when lazy loading
+    // { path: 'tables', loadChildren: './tables/tables.module#TablesModule'},
+    // { path: 'fixtures/:competitionId/:competitionName', loadChildren: './competition-fixtures/competition-fixtures.module#CompetitionFixturesModule' },
+    // { path: 'team/:teamId', loadChildren: './team/team.module#TeamModule' }
+// -->
 ];
 
 @NgModule({
