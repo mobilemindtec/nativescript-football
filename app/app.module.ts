@@ -1,16 +1,17 @@
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-// import { NativeScriptModule } from 'nativescript-angular/platform';
+import { NgModule, NO_ERRORS_SCHEMA, NgModuleFactoryLoader } from '@angular/core';
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
+import { NSModuleFactoryLoader } from 'nativescript-angular/router';
+
 import { AppRoutingModule } from './app.routing';
 import { NativeScriptHttpModule } from 'nativescript-angular/http';
-import { NativeScriptAnimationsModule  } from 'nativescript-angular/animations'; // <---
 import { AppComponent } from './app.component';
 
-import { CompetitionFixturesComponent } from './competition-fixtures/competition-fixtures.component';
-import { FixtureComponent } from './fixture/fixture.component';
-import { LeagueTableComponent } from './league-table/league-table.component';
-import { TablesComponent } from './tables/tables.component';
-import { TeamComponent } from './team/team.component';
+import { TablesComponent, LeagueTableComponent } from './tables';
+
+import { CompetitionFixturesComponent, FixtureComponent } from './competition-fixtures';
+import { TeamComponent, PlayerComponent } from './team';
+import { AgePipe } from './age.pipe';
+import { FlagPipe } from './flag.pipe';
 
 import { FootballService } from './football.service';
 
@@ -19,21 +20,29 @@ import { FootballService } from './football.service';
         AppComponent
     ],
     imports: [
-        // NativeScriptAnimationsModule,
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptHttpModule
+        NativeScriptHttpModule // <-- To remove when lazy loading
     ],
     declarations: [
         AppComponent,
-        CompetitionFixturesComponent,
-        FixtureComponent,
+// <-- To remove when lazy loading
+
         LeagueTableComponent,
         TablesComponent,
-        TeamComponent
+
+        CompetitionFixturesComponent,
+        FixtureComponent,
+
+        TeamComponent,
+        PlayerComponent,
+        AgePipe,
+        FlagPipe
+// -->
     ],
     providers: [
-        FootballService
+        { provide: NgModuleFactoryLoader, useClass: NSModuleFactoryLoader },
+        FootballService // <-- To remove when lazy loading
     ],
     schemas: [
         NO_ERRORS_SCHEMA
