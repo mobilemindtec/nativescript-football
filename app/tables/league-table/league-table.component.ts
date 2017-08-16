@@ -1,11 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { LeagueTable, Team } from '../models';
-import { FootballService } from '../football.service';
+import { LeagueTable, Team } from '../../models';
+import { FootballService } from '../../football.service';
 
 @Component({
+	moduleId: module.id,
   selector: 'my-league-table',
-  templateUrl: './league-table/league-table.component.html'
+  templateUrl: './league-table.component.html'
 })
 export class LeagueTableComponent {
   private id: number;
@@ -13,7 +14,6 @@ export class LeagueTableComponent {
     this.id = id;
 
     this.loadTeamsAndTable();
-    // setTimeout(() => this.loadTeamsAndTable(), 2000);
   }
 
   public table: LeagueTable;
