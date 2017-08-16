@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { LeagueTable, Team } from '../../models';
 import { FootballService } from '../../football.service';
@@ -8,18 +8,21 @@ import { FootballService } from '../../football.service';
   selector: 'my-league-table',
   templateUrl: './league-table.component.html'
 })
-export class LeagueTableComponent {
+export class LeagueTableComponent implements OnInit {
+
   private id: number;
   @Input() public set competitionId(id: number) {
     this.id = id;
-
-    this.loadTeamsAndTable();
   }
 
   public table: LeagueTable;
   public teams: Team[];
 
   constructor(private footballService: FootballService) {
+  }
+
+  ngOnInit(): void {
+    // this.loadTeamsAndTable();
   }
 
   /** 
