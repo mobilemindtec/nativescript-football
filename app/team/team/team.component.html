@@ -1,0 +1,22 @@
+<ActionBar [title]="team?.name" class="action-bar">
+</ActionBar>
+
+<DockLayout stretchLastChild="true">
+  <!-- <SVGImage src="https://upload.wikimedia.org/wikipedia/en/2/2e/Deportivo_Alaves_logo.svg" height="100" width="100"></SVGImage> -->
+  <!-- <Label dock="top" text="Fixtures" class="action-bar text-center text-primary"></Label>
+  <ListView [items]="fixtures" class="list-group">
+    <ng-template let-item="item" let-odd="odd" let-even="even">
+      <StackLayout class="list-group-item">
+        <my-fixture [fixture]="item" (teamTap)="teamSelected($event)"></my-fixture>
+      </StackLayout>
+    </ng-template>
+  </ListView>  -->
+  <Label dock="top" text="Players" class="action-bar text-center text-primary"></Label>
+   <ListView [items]="players" class="list-group"> 
+    <ng-template let-player="item" let-odd="odd" let-even="even">
+      <StackLayout class="list-group-item">
+        <my-player [player]="player"></my-player>
+      </StackLayout>
+    </ng-template>
+  </ListView>  
+</DockLayout>

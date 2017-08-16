@@ -1,0 +1,9 @@
+<StackLayout>
+	<StackLayout orientation="horizontal">
+		<Label [text]="player.nationality | flag" class="h2"></Label>
+		<Label [text]="player.name" class="text-primary h2"></Label>
+	</StackLayout>
+
+	<Label [text]="player.dateOfBirth | age"></Label>
+	<Label [text]="player.position" class=""></Label>
+</StackLayout>
