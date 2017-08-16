@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
-import { Fixture, Team } from '../models';
-import { FootballService } from '../football.service';
+import { Fixture, Team } from '../../models';
+import { FootballService } from '../../football.service';
 
 @Component({
-  selector: 'my-fixtures',
-  templateUrl: './competition-fixtures/competition-fixtures.component.html'
+	moduleId: module.id,
+	selector: 'app-competition-fixtures',
+	templateUrl: './competition-fixtures.component.html'
 })
 export class CompetitionFixturesComponent implements OnInit {
   public fixtures: Fixture[] = [];
@@ -36,6 +37,6 @@ export class CompetitionFixturesComponent implements OnInit {
 
   teamSelected(teamId: number) {
     console.log('::CompetitionFixturesComponent::teamSelected::' + teamId);
-    this.router.navigate(['/football/team', teamId]);
+    this.router.navigate(['/team', teamId]);
   }
 }
