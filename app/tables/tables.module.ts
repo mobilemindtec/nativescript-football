@@ -10,22 +10,22 @@ import { TablesComponent, LeagueTableComponent } from './'
 import { FootballService } from '../football.service';
 
 @NgModule({
-	imports: [
-		NativeScriptModule,
+  imports: [
+    NativeScriptModule,
     NativeScriptFormsModule,
     NativeScriptHttpModule,
-		NativeScriptRouterModule,
-		NativeScriptRouterModule.forChild(<any>TablesRoutes)
-	],
-	declarations: [
-    // TablesComponent,
-    // LeagueTableComponent
+    NativeScriptRouterModule,
+    NativeScriptRouterModule.forChild(<any>TablesRoutes)
+  ],
+  declarations: [
+    TablesComponent,
+    LeagueTableComponent
   ],
   providers: [
     FootballService
   ],
-	schemas: [
-		NO_ERRORS_SCHEMA
-	]
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class TablesModule { }

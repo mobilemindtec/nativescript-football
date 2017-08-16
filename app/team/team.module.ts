@@ -13,24 +13,24 @@ import { FlagPipe } from '../flag.pipe';
 import { FootballService } from '../football.service';
 
 @NgModule({
-	imports: [
-		NativeScriptModule,
-		NativeScriptFormsModule,
+  imports: [
+    NativeScriptModule,
+    NativeScriptFormsModule,
     NativeScriptHttpModule,
-		NativeScriptRouterModule,
-		NativeScriptRouterModule.forChild(<any>TeamRoutes)
-	],
-	declarations: [
-		// TeamComponent
-		// PlayerComponent
-		// AgePipe,
-		// FlagPipe
-	],
-	providers: [
-		FootballService
-	],
-	schemas: [
-		NO_ERRORS_SCHEMA
-	]
+    NativeScriptRouterModule,
+    NativeScriptRouterModule.forChild(<any>TeamRoutes)
+  ],
+  declarations: [
+    TeamComponent,
+    PlayerComponent,
+    AgePipe,
+    FlagPipe
+  ],
+  providers: [
+    FootballService
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class TeamModule { }
