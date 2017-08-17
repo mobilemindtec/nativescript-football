@@ -2,9 +2,11 @@ import { NgModule, NO_ERRORS_SCHEMA, NgModuleFactoryLoader } from '@angular/core
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { NSModuleFactoryLoader } from 'nativescript-angular/router';
 
-import { AppRoutingModule } from './app.routing';
-import { NativeScriptHttpModule } from 'nativescript-angular/http';
+import { NativeScriptRouterModule } from 'nativescript-angular';
+import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
+
+import { SharedModule } from './shared/shared.module';
 
 import { TablesComponent, LeagueTableComponent } from './tables';
 
@@ -20,9 +22,8 @@ import { FootballService } from './football.service';
         AppComponent
     ],
     imports: [
-        NativeScriptModule,
-        AppRoutingModule,
-        NativeScriptHttpModule
+        SharedModule,
+        NativeScriptRouterModule.forRoot(AppRoutes)
     ],
     declarations: [
         AppComponent,
@@ -41,8 +42,7 @@ import { FootballService } from './football.service';
 // -->
     ],
     providers: [
-        { provide: NgModuleFactoryLoader, useClass: NSModuleFactoryLoader },
-        FootballService
+        { provide: NgModuleFactoryLoader, useClass: NSModuleFactoryLoader }
     ],
     schemas: [
         NO_ERRORS_SCHEMA

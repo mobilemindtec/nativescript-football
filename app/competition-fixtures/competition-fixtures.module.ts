@@ -1,8 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
-import { NativeScriptFormsModule } from 'nativescript-angular/forms';
-import { NativeScriptRouterModule, NativeScriptHttpModule } from 'nativescript-angular';
+import { SharedModule } from '../shared/shared.module';
+import { NativeScriptRouterModule} from 'nativescript-angular';
 
 import { CompetitionFixturesRoutes } from './competition-fixtures.routes';
 
@@ -11,14 +10,12 @@ import { FootballService } from '../football.service';
 
 @NgModule({
   imports: [
-    NativeScriptModule,
-    NativeScriptFormsModule,
-    NativeScriptHttpModule,
+    SharedModule,
     NativeScriptRouterModule.forChild(<any>CompetitionFixturesRoutes)
   ],
   declarations: [
-    // CompetitionFixturesComponent,
-    // FixtureComponent
+    CompetitionFixturesComponent,
+    FixtureComponent
   ],
   providers: [
     FootballService
