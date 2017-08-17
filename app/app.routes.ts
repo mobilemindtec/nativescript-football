@@ -1,13 +1,10 @@
-import { NgModule } from '@angular/core';
-import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { Routes } from '@angular/router';
 
 import { TablesComponent } from './tables';
 import { CompetitionFixturesComponent } from './competition-fixtures';
 import { TeamComponent } from './team';
 
-
-const routes: Routes = [
+export const AppRoutes: Routes = [
     { path: '', redirectTo: '/tables', pathMatch: 'full' },
     { path: 'tables', component: TablesComponent },
     
@@ -21,9 +18,3 @@ const routes: Routes = [
     // { path: 'team/:teamId', loadChildren: './team/team.module#TeamModule' }
 // -->
 ];
-
-@NgModule({
-    imports: [NativeScriptRouterModule.forRoot(routes)],
-    exports: [NativeScriptRouterModule]
-})
-export class AppRoutingModule { }
